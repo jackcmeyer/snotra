@@ -1,0 +1,17 @@
+language: node_js
+
+node_js:
+  - "10"
+
+before_script:
+  - npm install -g codecov
+
+script:
+  - yarn lint
+  - yarn test:coverage
+
+after_success:
+  ./bin/codecov -e TRAVIS_NODE_VERSION
+
+notifications:
+  email: false

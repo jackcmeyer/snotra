@@ -1,0 +1,65 @@
+{
+  "name": "@jackcmeyer/snotra",
+  "version": "0.0.1",
+  "description": "clever decorators for TypeScript",
+  "main": "lib/index.js",
+  "dependencies": {
+    "cz-conventional-changelog": "^3.0.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@commitlint/prompt": "^8.2.0",
+    "@types/jest": "^24.0.19",
+    "@types/node": "^12.11.2",
+    "@typescript-eslint/eslint-plugin": "^2.5.0",
+    "@typescript-eslint/parser": "^2.5.0",
+    "commitizen": "^4.0.3",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.20.0",
+    "husky": "^3.0.9",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.1.0",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.4"
+  },
+  "scripts": {
+    "commit": "npx git-cz",
+    "prepublishOnly": "npm run build",
+    "build": "npx tsc",
+    "start": "ts-node src/index.ts",
+    "test": "jest",
+    "test:coverage": "jest && codecov",
+    "lint": "npx eslint ./**/*.ts"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "yarn lint",
+      "pre-push": "yarn test"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackcmeyer/snotra.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "keywords": [
+    "TypeScript"
+  ],
+  "author": "Jack Meyer <jackcmeyer@gmail.com> (http://jackcmeyer.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jackcmeyer/snotra/issues"
+  },
+  "homepage": "https://github.com/jackcmeyer/snotra#readme"
+}
